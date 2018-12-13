@@ -5,40 +5,6 @@
   <center>
     <img src="https://scontent-ort2-2.xx.fbcdn.net/v/l/t1.0-9/10403345_1589609127940057_3653932991757216663_n.png?_nc_cat=110&_nc_ht=scontent-ort2-2.xx&oh=76e32ec87f9f5eab23491d2b0d21b47c&oe=5C9F94FE" width="100%" height="auto">
     <h3>Same Day Dent Repair Payment</h3>
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
 
-<!-- Create a button that your customers click to complete their purchase. -->
-Pay $99 - <button id="checkout-button">Pay $99</button>
-<div id="error-message"></div>
-
-<script>
-  var stripe = Stripe('pk_live_pnHXbaQDq51hhJGt0HXUGTT5', {
-    betas: ['checkout_beta_3']
-  });
-
-  var checkoutButton = document.getElementById('checkout-button');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{sku: 'sku_E87EiaOCshjTVQ', quantity: 1}],
-
-      // Note that it is not guaranteed your customers will be redirected to this
-      // URL *100%* of the time, it's possible that they could e.g. close the
-      // tab between form submission and the redirect.
-      successUrl: 'https://floatbeta.github.io/sameday.github.io/sucess.html',
-      cancelUrl: 'https://floatbeta.github.io/sameday.github.io/cancel.html',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-</script>
 </body>
 </html>
